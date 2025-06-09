@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Alexandre Brethome"
+title: "Alexandre Brethomé"
 author_profile: true
 redirect_from: 
   - /about/
