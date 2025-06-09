@@ -1,5 +1,5 @@
 {
-    "name": "ACADEMIC PAGES",
+    "name": "GITHUB PAGES",
     "dockerComposeFile": "../docker-compose.yaml",
     "service": "jekyll-site",
     "remoteEnv": {
