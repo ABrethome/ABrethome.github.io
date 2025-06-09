@@ -7,9 +7,9 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "en-US"
+locale                   : "en-UK"
 site_theme               : "default"
-title                    : "Alexandre Brethomé"
+title                    : "Alex Brethomé"
 title_separator          : "-"
 name                     : &name "Alexandre Brethomé"
 description              : &description "With a PhD in both chemistry and data science, I thrive at the interface of both disciplines, 
@@ -26,9 +26,9 @@ repository               : "ABrethome/ABrethome.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Alexandre Brethomé"
+  name             : "Alex Brethomé"
   pronouns         : # example: "she/her"  
-  bio              : "Data science in chemistry"
+  bio              : "Data scientist in chemistry"
   location         : "Angers, France"
   employer         : #"Red Brick University"
   uri              : # URL
