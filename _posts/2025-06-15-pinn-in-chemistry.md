@@ -123,7 +123,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_6_0.png)
+![png](images/pinn-in-chemistry/output_6_0.png)
     
 
 
@@ -275,7 +275,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_15_0.png)
+![png](images/pinn-in-chemistry/output_15_0.png)
     
 
 
@@ -332,7 +332,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_20_0.png)
+![png](images/pinn-in-chemistry/output_20_0.png)
     
 
 
@@ -391,7 +391,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_28_0.png)
+![png](images/pinn-in-chemistry/output_28_0.png)
     
 
 
@@ -546,7 +546,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_34_0.png)
+![png](images/pinn-in-chemistry/output_34_0.png)
     
 
 
@@ -581,7 +581,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_36_0.png)
+![png](images/pinn-in-chemistry/output_36_0.png)
     
 
 
@@ -708,7 +708,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_44_0.png)
+![png](images/pinn-in-chemistry/output_44_0.png)
     
 
 
@@ -744,7 +744,7 @@ plt.show()
 
 
     
-![png](../images/posts/pinn-in-chemistry/output_46_0.png)
+![png](images/pinn-in-chemistry/output_46_0.png)
     
 
 
