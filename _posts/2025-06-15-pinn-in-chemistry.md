@@ -42,7 +42,7 @@ $$ \frac{d[\text{H}_2\text{O}_2]}{dt} = -k[\text{H}_2\text{O}_2] $$
 
 This is an an ordinary differential equation (ODE).
 The main difference between ODE and PDE is that an ODE involves derivatives with respect to a single variable (like time here), while a partial differential equation (PDE) involves derivatives with respect to multiple variables (such as time and space).
-Here, I have the concentration of hydrogen peroxide, which depends on one variable which is time, describing how the concentration of $\text{H}_2\text{O}_2$ changes over time, and I want a model to be able to predict the concentration of $\text{H}_2\text{O}_2$ during a batch reaction (or whatever).
+Here, I have the concentration of hydrogen peroxide, which depends on one variable which is time, describing how the concentration of \\( \text{H}_2\text{O}_2 \\) changes over time, and I want a model to be able to predict the concentration of \\( \text{H}_2\text{O}_2 \\) during a batch reaction (or whatever).
 
 It can also be written like this:
 
@@ -56,12 +56,12 @@ Our equation is:
 $$ \frac{du}{dt} + k u = 0 $$
 
 where:
-- $u$ is $[\text{H}_2\text{O}_2]$
+- \\( u \\) is \\( [\text{H}_2\text{O}_2] \\)
 
 Here, we know that the solution function to this ODE is:
 $$u = A \exp{(-k t)}$$
 where:
-- $A$ represents the concentration of $[\text{H}_2\text{O}_2]$ at $t = 0$
+- \\( A \\) represents the concentration of \\( [\text{H}_2\text{O}_2]\\) at \\( t = 0 \\)
 
 We will use it to test predictions compared to the real analytical solution.
 
@@ -100,7 +100,7 @@ t_train_pde.shape, t_test_pde.shape
 
 
 
-Here, we define a uniform mesh of $t \in [0, 2]$.
+Here, we define a uniform mesh of \\( t \in [0, 2] \\).
 `t_train_pde` and `t_test_pde` represents the mesh we will use to train the neural network to fit the PDE.
 
 
@@ -174,43 +174,18 @@ pinn.add(tf.keras.layers.Dense(units=n_outputs))
 pinn.summary()
 ```
 
+    **Model: "sequential_2"**
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "sequential_2"</span>
-</pre>
+    | Layer (type)   | Output Shape | Param # |
+    |----------------|--------------|---------|
+    | dense_8        | (None, 5)    | 10      |
+    | dense_9        | (None, 5)    | 30      |
+    | dense_10       | (None, 5)    | 30      |
+    | dense_11       | (None, 1)    | 6       |
 
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ dense_8 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">10</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_9 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                 │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">30</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_10 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">30</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_11 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)              │             <span style="color: #00af00; text-decoration-color: #00af00">6</span> │
-└─────────────────────────────────┴────────────────────────┴───────────────┘
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">76</span> (304.00 B)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">76</span> (304.00 B)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
-</pre>
+    **Total params:** 76 (304.00 B)  
+    **Trainable params:** 76 (304.00 B)  
+    **Non-trainable params:** 0 (0.00 B)
 
 
 
@@ -286,8 +261,8 @@ A lot of papers in the literature stop here: PINN in itself can theoretically ha
 I don't need a PINN model to solve ODE/PDE, but rather I want to use it to balance mechanistic knowledge with real data.
 
 However, I don't have experimental data, so I will synthesize noisy and sparse data for the purpose of this exploration.
-For the data, I will assume I only managed to get some from $t \in [0, 1]$ and my old instrument can't measure lots of data points.
-Note that I trained my model with the PDE mesh $t \in [0, 2]$, which means the PDE mesh allows me to train my model in a space where I do not have experimental data.
+For the data, I will assume I only managed to get some from \\( t \in [0, 1] \\) and my old instrument can't measure lots of data points.
+Note that I trained my model with the PDE mesh \\( t \in [0, 2] \\), which means the PDE mesh allows me to train my model in a space where I do not have experimental data.
 
 
 ```python
@@ -336,7 +311,7 @@ plt.show()
 
 There is no value of making a PINN if the PDE perfectly describes the chemical system (I would just use the PDE as my model!). Therefore, I will assume that some parameters used in the original equation were wrong, and that the real values are unknown and slightly different.
 
-In our simple use case, one could assume that the textbook kinetic rate is slightly off, where $k_\text{real} = 13$ in reality, but textbook constant is $k_\text{textbook} = 10$. Similarly, one may have planned to add $1 mol/L$, whereas in reality $1.1 mol/L$ was added due to measurement errors.
+In our simple use case, one could assume that the textbook kinetic rate is slightly off, where \\( k_\text{real} = 13 \\) in reality, but textbook constant is \\( k_\text{textbook} = 10 \\). Similarly, one may have planned to add \\( 1 mol/L \\), whereas in reality \\( 1.1 mol/L \\) was added due to measurement errors.
 
 
 ```python
@@ -413,43 +388,18 @@ pinn_with_data.add(tf.keras.layers.Dense(units=n_outputs))
 pinn_with_data.summary()
 ```
 
+    **Model: "sequential_3"**
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "sequential_3"</span>
-</pre>
+    | Layer (type)   | Output Shape | Param # |
+    |----------------|--------------|---------|
+    | dense_12       | (None, 5)    | 10      |
+    | dense_13       | (None, 5)    | 30      |
+    | dense_14       | (None, 5)    | 30      |
+    | dense_15       | (None, 1)    | 6       |
 
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ dense_12 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">10</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_13 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">30</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_14 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">30</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_15 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)              │             <span style="color: #00af00; text-decoration-color: #00af00">6</span> │
-└─────────────────────────────────┴────────────────────────┴───────────────┘
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">76</span> (304.00 B)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">76</span> (304.00 B)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
-</pre>
+    **Total params:** 76 (304.00 B)  
+    **Trainable params:** 76 (304.00 B)  
+    **Non-trainable params:** 0 (0.00 B)
 
 
 
@@ -613,43 +563,18 @@ nn_with_data.add(tf.keras.layers.Dense(units=n_outputs))
 nn_with_data.summary()
 ```
 
+    **Model: "sequential_4"**
 
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">Model: "sequential_4"</span>
-</pre>
+    | Layer (type)   | Output Shape | Param # |
+    |----------------|--------------|---------|
+    | dense_16 (Dense) | (None, 5)    | 10      |
+    | dense_17 (Dense) | (None, 5)    | 30      |
+    | dense_18 (Dense) | (None, 5)    | 30      |
+    | dense_19 (Dense) | (None, 1)    | 6       |
 
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
-┃<span style="font-weight: bold"> Layer (type)                    </span>┃<span style="font-weight: bold"> Output Shape           </span>┃<span style="font-weight: bold">       Param # </span>┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
-│ dense_16 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">10</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_17 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">30</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_18 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">5</span>)              │            <span style="color: #00af00; text-decoration-color: #00af00">30</span> │
-├─────────────────────────────────┼────────────────────────┼───────────────┤
-│ dense_19 (<span style="color: #0087ff; text-decoration-color: #0087ff">Dense</span>)                │ (<span style="color: #00d7ff; text-decoration-color: #00d7ff">None</span>, <span style="color: #00af00; text-decoration-color: #00af00">1</span>)              │             <span style="color: #00af00; text-decoration-color: #00af00">6</span> │
-└─────────────────────────────────┴────────────────────────┴───────────────┘
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Total params: </span><span style="color: #00af00; text-decoration-color: #00af00">76</span> (304.00 B)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">76</span> (304.00 B)
-</pre>
-
-
-
-
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold"> Non-trainable params: </span><span style="color: #00af00; text-decoration-color: #00af00">0</span> (0.00 B)
-</pre>
+    **Total params:** 76 (304.00 B)  
+    **Trainable params:** 76 (304.00 B)  
+    **Non-trainable params:** 0 (0.00 B)
 
 
 
@@ -746,7 +671,7 @@ plt.show()
     
 
 
-If you remember, we have the PDE mesh $t \in [0, 2]$ whereas we only collected data where $t \in [0, 1]$. Thus, the baseline neural network is only trained on $t \in [0, 1]$. The baseline intrapolation therefore is where $t \in [0, 1]$ and anything outside this range is extrapolation. Unfortunately, the baseline model extrapolates negative concentrations, because there has been no physical constraints.
+If you remember, we have the PDE mesh \\( t \in [0, 2] \\) whereas we only collected data where \\( t \in [0, 1] \\). Thus, the baseline neural network is only trained on \\( t \in [0, 1] \\). The baseline intrapolation therefore is where \\( t \in [0, 1] \\) and anything outside this range is extrapolation. Unfortunately, the baseline model extrapolates negative concentrations, because there has been no physical constraints.
 
 On the contrary, the PINN with data model is capable of fitting the data in the region where it is available, and at the same can extrapolate thanks to the mesh provided to generate data artificially using the PDE. The PINN with data is literally a compromise between both the data and the mechanistic equation.
 
@@ -756,8 +681,8 @@ It is important to note that the example presented here is intentionally simple.
 
 **Challenges and considerations with PINNs:**
 - The convergence of PINNs is influenced by numerous factors, including the choice of initializer, optimizer, and mesh. It is common for training to become trapped in local minima or converge to trivial solutions, especially when working with noisy experimental data.
-- Careful definition of the mechanistic model is essential. For example, if $u$ represents concentration, a constant solution such as $u(t) = 0$ may minimize the ODE residual but is not informative. Initial and boundary conditions play a critical role in guiding the neural network toward meaningful, non-trivial solutions.
-- The initial condition loss is designed to prevent convergence to trivial solutions (e.g., $u(t) = 0$). However, in practice, the ODE loss may favor trivial solutions, while the initial condition loss encourages non-trivial ones. The relative weighting of these losses can therefore be significant.
+- Careful definition of the mechanistic model is essential. For example, if $u$ represents concentration, a constant solution such as \\( u(t) = 0 \\) may minimize the ODE residual but is not informative. Initial and boundary conditions play a critical role in guiding the neural network toward meaningful, non-trivial solutions.
+- The initial condition loss is designed to prevent convergence to trivial solutions (e.g., \\( u(t) = 0 \\)). However, in practice, the ODE loss may favor trivial solutions, while the initial condition loss encourages non-trivial ones. The relative weighting of these losses can therefore be significant.
 - The magnitudes of different loss components can vary substantially during training, making it challenging to select appropriate weights. For instance, the initial condition loss may dominate early in training, while the PDE loss can become more significant later.
 - In applications involving experimental data, model validation is typically performed using real data and data loss metrics. Validating against synthetic data generated from the mechanistic model primarily assesses the model’s ability to fit the theoretical equation, which may not reflect real-world performance. As a result, increasing the weight of the data loss often improves validation metrics, regardless of the quality of the mechanistic model.
 
