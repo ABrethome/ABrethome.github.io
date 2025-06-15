@@ -24,6 +24,10 @@ redirect_from:
 * Static files (like PDFs): /files/
 * Profile image (can set in _config.yml): images/profile.png
 
+```
+jupyter nbconvert my_notebook.ipynb --to markdown --output output.md
+```
+
 ## Tips and hints
 
 * Name a file ".md" to have it render in markdown, name it ".html" to render in HTML.
