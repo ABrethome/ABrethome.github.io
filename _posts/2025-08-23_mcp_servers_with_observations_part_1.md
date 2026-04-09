@@ -1,11 +1,8 @@
 ---
-title: 'Create and consume a MCP server with observations (Part 1)'
+title: Create and consume a MCP server with observations (Part 1)
 date: 2025-08-23
 permalink: /posts/2025/08/mcp-servers-with-observations-part-1/
-tags:
-  - GenAI
-  - MCP
-  - Langchain
+tags: ["GenAI", "MCP", "Langchain"]
 ---
 
 *This post is for data scientists, AI engineers, and researchers interested in building trustworthy, reproducible AI systems with LangChain and MCP. Familiarity with Python and basic concepts of LLMs and RAG is recommended.*
