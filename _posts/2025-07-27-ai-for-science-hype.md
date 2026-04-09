@@ -1,5 +1,5 @@
 ---
-title: "Applying the lessons from the 'AI-for-Science' hype to the corporate world"
+title: 'Applying the lessons from the 'AI-for-Science' hype to the corporate world'
 date: 2025-07-27
 permalink: /posts/2025/07/ai-for-science-hype/
 tags:
