@@ -2,9 +2,10 @@
 
 Forked from [Academic Pages.](https://github.com/academicpages/academicpages.github.io)
 
-## Useful tips to add content
+## Useful tips to add content to `_posts`
 
-- Tips can be found to create a blog post at (_pages/markdown.md)[_pages/markdown.md]
+- Tips can be found to create a blog post at [_pages/markdown.md](_pages/markdown.md)
+- Filename must **not** contain underscores, only hyphens.
 
 ## Running locally
 
