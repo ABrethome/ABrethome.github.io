@@ -28,7 +28,9 @@ author:
   avatar           : "profile.png"
   name             : "Alex Brethomé"
   pronouns         : # example: "she/her"  
-  bio              : "Data scientist in chemistry"
+  bio              : "Data scientist in chemistry.
+  
+  The views expressed in this blog are solely my own and do not represent those of my employer."
   location         : "Angers, France"
   employer         : #"Red Brick University"
   uri              : # URL
