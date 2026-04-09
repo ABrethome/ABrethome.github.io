@@ -1,5 +1,5 @@
 ---
-title: "Create and consume a MCP server with observations (Part 1)"
+title: 'Create and consume a MCP server with observations (Part 1)'
 date: 2025-08-23
 permalink: /posts/2025/08/mcp-servers-with-observations-part-1/
 tags:

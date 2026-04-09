@@ -2,6 +2,10 @@
 
 Forked from [Academic Pages.](https://github.com/academicpages/academicpages.github.io)
 
+## Useful tips to add content
+
+- Tips can be found to create a blog post at (_pages/markdown.md)[_pages/markdown.md]
+
 ## Running locally
 
 When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
@@ -9,6 +13,18 @@ When you are initially working on your website, it is very useful to be able to 
 1. Clone the repository and made updates as detailed above.
 
 ## Using Docker
+
+Installing docker compose:
+
+https://docs.docker.com/compose/install/linux/#install-the-plugin-manually
+
+```bash
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v5.1.2/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+docker compose version
+```
 
 Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
 
