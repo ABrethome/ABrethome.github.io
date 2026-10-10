@@ -6,6 +6,11 @@ Forked from [Academic Pages.](https://github.com/academicpages/academicpages.git
 
 - Tips can be found to create a blog post at [_pages/markdown.md](_pages/markdown.md)
 - Filename must **not** contain underscores, only hyphens.
+- Useful prompt to create monthly reading article with the corresponding skill:
+```markdown
+Write a reading article for this month using the `/monthly-readings` skill. Here are my links for this month:
+<list of links>
+```
 
 ## Running locally
 
